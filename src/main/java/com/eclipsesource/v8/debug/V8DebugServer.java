@@ -92,10 +92,11 @@ public class V8DebugServer {
 
     //Protocol consts
     private static final Charset PROTOCOL_CHARSET               = Charset.forName("UTF-8");
+    private static final String PROTOCOL_CHARSET_STR               = "UTF-8";
     private static final String  PROTOCOL_EOL                   = "\r\n";
-    private static final byte[]  PROTOCOL_EOL_BYTES             = PROTOCOL_EOL.getBytes(PROTOCOL_CHARSET);
+    private static final byte[]  PROTOCOL_EOL_BYTES             = PROTOCOL_EOL.getBytes(PROTOCOL_CHARSET_STR);
     private static final String  PROTOCOL_CONTENT_LENGTH_HEADER = "Content-Length:";
-    private static final byte[]  PROTOCOL_CONTENT_LENGTH_BYTES  = PROTOCOL_CONTENT_LENGTH_HEADER.getBytes(PROTOCOL_CHARSET);
+    private static final byte[]  PROTOCOL_CONTENT_LENGTH_BYTES  = PROTOCOL_CONTENT_LENGTH_HEADER.getBytes(PROTOCOL_CHARSET_STR);
     private static final int     PROTOCOL_BUFFER_SIZE           = 4096;
 
     /**
@@ -264,7 +265,7 @@ public class V8DebugServer {
                 throw new IOException("There is no connected client.");
             }
 
-            byte[] contentBytes = contents.getBytes(PROTOCOL_CHARSET);
+            byte[] contentBytes = contents.getBytes(PROTOCOL_CHARSET_STR);
 
             StringBuilder sb = new StringBuilder();
 
@@ -281,7 +282,7 @@ public class V8DebugServer {
 
             //send headers to the client
             client.getOutputStream().write(sb.toString().getBytes(
-                    PROTOCOL_CHARSET));
+                    PROTOCOL_CHARSET_STR));
 
             //send contents to the client
             if (contentBytes.length > 0) {
@@ -614,7 +615,7 @@ public class V8DebugServer {
                     messageBytes = join(messageBytes, buf, from, length);
                     from += length;
                     if (messageBytes.length == contentLength) {
-                        String message = new String(messageBytes, PROTOCOL_CHARSET);
+                        String message = new String(messageBytes, PROTOCOL_CHARSET_STR);
                         synchronized (requests) {
                             requests.add(message);
                         }
@@ -642,13 +643,13 @@ public class V8DebugServer {
             if (end < 0) {
                 return -1;
             }
-            String str = new String(bytes, pos, end - pos, PROTOCOL_CHARSET);
+            String str = new String(bytes, pos, end - pos, PROTOCOL_CHARSET_STR);
             int contentLength;
             try {
                 contentLength = Integer.parseInt(str.trim());
             } catch (Exception ex) {
                 throw new IOException("Invalid content length header: '" + str + "' in message" +
-                        new String(bytes, PROTOCOL_CHARSET));
+                        new String(bytes, PROTOCOL_CHARSET_STR));
             }
             from = end + PROTOCOL_EOL_BYTES.length;
             return contentLength;
