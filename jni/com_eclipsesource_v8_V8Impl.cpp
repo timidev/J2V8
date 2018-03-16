@@ -198,7 +198,7 @@ void addValueWithKey(JNIEnv* env, Isolate* isolate, jlong &v8RuntimePtr, jlong &
 }
 
 void getJNIEnv(JNIEnv*& env) {
-  int getEnvStat = jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
+  int getEnvStat = jvm->GetEnv((void **)&env, JNI_VERSION_1_4);
   if (getEnvStat == JNI_EDETACHED) {
 #ifdef __ANDROID_API__
     if (jvm->AttachCurrentThread(&env, NULL) != 0) {
@@ -233,7 +233,7 @@ class ShellArrayBufferAllocator : public v8::ArrayBuffer::Allocator {
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
     JNIEnv *env;
     jint onLoad_err = -1;
-    if ( vm->GetEnv((void **)&env, JNI_VERSION_1_6) != JNI_OK ) {
+    if ( vm->GetEnv((void **)&env, JNI_VERSION_1_4) != JNI_OK ) {
         return onLoad_err;
     }
     if (env == NULL) {
@@ -294,7 +294,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
     v8FunctionInitMethodID = env->GetMethodID(v8FunctionCls, "<init>", "(Lcom/eclipsesource/v8/V8;)V");
     v8ObjectInitMethodID = env->GetMethodID(v8ObjectCls, "<init>", "(Lcom/eclipsesource/v8/V8;)V");
 
-    return JNI_VERSION_1_6;
+    return JNI_VERSION_1_4;
 }
 
 JNIEXPORT void JNICALL Java_com_eclipsesource_v8_V8__1setFlags
