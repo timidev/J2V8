@@ -142,7 +142,8 @@ public abstract class V8ScriptException extends V8RuntimeException {
 
     private String createMessageDetails() {
         StringBuilder result = new StringBuilder();
-        if ((sourceLine != null) && !sourceLine.isEmpty()) {
+        //if ((sourceLine != null) && !sourceLine.isEmpty()) {
+        if ((sourceLine != null) && !(sourceLine.trim().length()==0)) {
             result.append('\n');
             result.append(sourceLine);
             result.append('\n');
