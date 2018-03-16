@@ -10,7 +10,7 @@
  ******************************************************************************/
 package com.eclipsesource.v8.utils;
 
-import java.util.AbstractMap.SimpleEntry;
+//import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;

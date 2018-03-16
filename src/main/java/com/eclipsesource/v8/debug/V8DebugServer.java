@@ -94,9 +94,9 @@ public class V8DebugServer {
     private static final Charset PROTOCOL_CHARSET               = Charset.forName("UTF-8");
     private static final String PROTOCOL_CHARSET_STR               = "UTF-8";
     private static final String  PROTOCOL_EOL                   = "\r\n";
-    private static final byte[]  PROTOCOL_EOL_BYTES             = PROTOCOL_EOL.getBytes(PROTOCOL_CHARSET_STR);
+    private static byte[]  PROTOCOL_EOL_BYTES             ;
     private static final String  PROTOCOL_CONTENT_LENGTH_HEADER = "Content-Length:";
-    private static final byte[]  PROTOCOL_CONTENT_LENGTH_BYTES  = PROTOCOL_CONTENT_LENGTH_HEADER.getBytes(PROTOCOL_CHARSET_STR);
+    private static byte[]  PROTOCOL_CONTENT_LENGTH_BYTES ;
     private static final int     PROTOCOL_BUFFER_SIZE           = 4096;
 
     /**
@@ -634,6 +634,10 @@ public class V8DebugServer {
         }
 
         private int readContentLength(final byte[] bytes, final int to) throws IOException {
+
+            PROTOCOL_EOL_BYTES  = PROTOCOL_EOL.getBytes(PROTOCOL_CHARSET_STR);
+            PROTOCOL_CONTENT_LENGTH_BYTES  = PROTOCOL_CONTENT_LENGTH_HEADER.getBytes(PROTOCOL_CHARSET_STR);
+
             int pos = indexOf(PROTOCOL_CONTENT_LENGTH_BYTES, bytes, from, to);
             if (pos < 0) {
                 return -1;
