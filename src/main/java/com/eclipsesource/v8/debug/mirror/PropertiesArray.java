@@ -40,7 +40,7 @@ public class PropertiesArray implements Releasable {
         }
     }
 
-    @Override
+    //@Override
     public void release() {
         if (!v8Array.isReleased()) {
             v8Array.release();

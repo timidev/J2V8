@@ -85,7 +85,7 @@ public class NodeJS {
         final NodeJS node = new NodeJS(v8);
         v8.registerJavaMethod(new JavaVoidCallback() {
 
-            @Override
+            //@Override
             public void invoke(final V8Object receiver, final V8Array parameters) {
                 V8Function require = (V8Function) parameters.get(0);
                 try {
@@ -198,7 +198,7 @@ public class NodeJS {
 
     private V8Function createScriptExecutionCallback(final File file) {
         V8Function v8Function = new V8Function(v8, new JavaCallback() {
-            @Override
+            //@Override
             public Object invoke(final V8Object receiver, final V8Array parameters) {
                 V8Array requireParams = new V8Array(v8);
                 try {

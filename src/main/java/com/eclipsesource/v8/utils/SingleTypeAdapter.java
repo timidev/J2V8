@@ -32,7 +32,7 @@ public abstract class SingleTypeAdapter implements TypeAdapter {
      * (non-Javadoc)
      * @see com.eclipsesource.v8.utils.TypeAdapter#adapt(int, java.lang.Object)
      */
-    @Override
+    //@Override
     public Object adapt(final int type, final Object value) {
         if (type == typeToAdapt) {
             return adapt(value);

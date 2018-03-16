@@ -256,7 +256,7 @@ public class DebugHandler implements Releasable {
         }
     }
 
-    @Override
+    //@Override
     public void release() {
         debugObject.release();
     }
@@ -291,7 +291,7 @@ public class DebugHandler implements Releasable {
 
     private class BreakpointHandler implements JavaVoidCallback {
 
-        @Override
+        //@Override
         public void invoke(final V8Object receiver, final V8Array parameters) {
             if ((parameters == null) || parameters.isUndefined()) {
                 return;

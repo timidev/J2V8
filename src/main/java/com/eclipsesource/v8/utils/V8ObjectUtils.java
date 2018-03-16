@@ -706,7 +706,7 @@ public class V8ObjectUtils {
     }
 
     static class DefaultTypeAdapter implements TypeAdapter {
-        @Override
+        //@Override
         public Object adapt(final int type, final Object value) {
             return TypeAdapter.DEFAULT;
         }

@@ -34,7 +34,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#size()
      */
-    @Override
+    //@Override
     public int size() {
         return map.size() + nulls.size();
     }
@@ -43,7 +43,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#isEmpty()
      */
-    @Override
+    //@Override
     public boolean isEmpty() {
         return map.isEmpty() && nulls.isEmpty();
     }
@@ -52,7 +52,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#containsKey(java.lang.Object)
      */
-    @Override
+    //@Override
     public boolean containsKey(final Object key) {
         return map.containsKey(key) || nulls.contains(key);
     }
@@ -61,7 +61,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#containsValue(java.lang.Object)
      */
-    @Override
+    //@Override
     public boolean containsValue(final Object value) {
         if ((value == null) && !nulls.isEmpty()) {
             return true;
@@ -75,7 +75,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#get(java.lang.Object)
      */
-    @Override
+    //@Override
     public V get(final Object key) {
         if (nulls.contains(key)) {
             return null;
@@ -87,7 +87,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#put(java.lang.Object, java.lang.Object)
      */
-    @Override
+    //@Override
     public V put(final String key, final V value) {
         if (value == null) {
             if (map.containsKey(key)) {
@@ -106,7 +106,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#remove(java.lang.Object)
      */
-    @Override
+    //@Override
     public V remove(final Object key) {
         if (nulls.contains(key)) {
             nulls.remove(key);
@@ -119,7 +119,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#putAll(java.util.Map)
      */
-    @Override
+    //@Override
     public void putAll(final Map<? extends String, ? extends V> m) {
         for (Entry<? extends String, ? extends V> entry : m.entrySet()) {
             this.put(entry.getKey(), entry.getValue());
@@ -130,7 +130,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#clear()
      */
-    @Override
+    //@Override
     public void clear() {
         map.clear();
         nulls.clear();
@@ -140,7 +140,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#keySet()
      */
-    @Override
+    //@Override
     public Set<String> keySet() {
         HashSet<String> result = new HashSet<String>(map.keySet());
         result.addAll(nulls);
@@ -151,7 +151,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#values()
      */
-    @Override
+    //@Override
     public Collection<V> values() {
         ArrayList<V> result = new ArrayList<V>(map.values());
         for (int i = 0; i < nulls.size(); i++) {
@@ -164,7 +164,7 @@ class V8PropertyMap<V> implements Map<String, V> {
      * (non-Javadoc)
      * @see java.util.Map#entrySet()
      */
-    @Override
+    //@Override
     public Set<Entry<String, V>> entrySet() {
         HashSet<Entry<String, V>> result = new HashSet<Map.Entry<String, V>>(map.entrySet());
         for (String nullKey : nulls) {

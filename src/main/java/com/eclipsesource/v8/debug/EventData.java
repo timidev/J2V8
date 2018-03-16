@@ -24,7 +24,7 @@ public class EventData implements Releasable {
         v8Object = eventData.twin();
     }
 
-    @Override
+    //@Override
     public void release() {
         if (!v8Object.isReleased()) {
             v8Object.release();

@@ -79,7 +79,7 @@ public class ScriptBreakPoint implements Releasable {
         }
     }
 
-    @Override
+    //@Override
     public void release() {
         if ((v8Object != null) && !v8Object.isReleased()) {
             v8Object.release();

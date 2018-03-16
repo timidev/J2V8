@@ -246,7 +246,7 @@ public class V8Executor extends Thread {
     }
 
     class ExecutorTermination implements JavaVoidCallback {
-        @Override
+        //@Override
         public void invoke(final V8Object receiver, final V8Array parameters) {
             if (forceTerminating) {
                 throw new RuntimeException("V8Thread Termination");

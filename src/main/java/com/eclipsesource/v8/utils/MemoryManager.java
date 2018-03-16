@@ -116,12 +116,12 @@ public class MemoryManager {
 
     private class MemoryManagerReferenceHandler implements ReferenceHandler {
 
-        @Override
+        //@Override
         public void v8HandleCreated(final V8Value object) {
             references.add(object);
         }
 
-        @Override
+        //@Override
         public void v8HandleDisposed(final V8Value object) {
             if (!releasing) {
                 Iterator<V8Value> iterator = references.iterator();

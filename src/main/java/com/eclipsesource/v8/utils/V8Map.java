@@ -45,7 +45,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * map can be used again once it's released, although
      * if it's used again it should be released again.
      */
-    @Override
+    //@Override
     public void release() {
         this.clear();
     }
@@ -54,7 +54,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#size()
      */
-    @Override
+    //@Override
     public int size() {
         return map.size();
     }
@@ -63,7 +63,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#isEmpty()
      */
-    @Override
+    //@Override
     public boolean isEmpty() {
         return map.isEmpty();
     }
@@ -72,7 +72,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#containsKey(java.lang.Object)
      */
-    @Override
+    //@Override
     public boolean containsKey(final Object key) {
         return map.containsKey(key);
     }
@@ -81,7 +81,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#containsValue(java.lang.Object)
      */
-    @Override
+    //@Override
     public boolean containsValue(final Object value) {
         return map.containsValue(value);
     }
@@ -90,7 +90,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#get(java.lang.Object)
      */
-    @Override
+    //@Override
     public V get(final Object key) {
         return map.get(key);
     }
@@ -99,7 +99,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#put(java.lang.Object, java.lang.Object)
      */
-    @Override
+    //@Override
     public V put(final V8Value key, final V value) {
         this.remove(key);
         V8Value twin = key.twin();
@@ -111,7 +111,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#remove(java.lang.Object)
      */
-    @Override
+    //@Override
     public V remove(final Object key) {
         V result = map.remove(key);
         V8Value twin = twinMap.remove(key);
@@ -125,7 +125,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#putAll(java.util.Map)
      */
-    @Override
+    //@Override
     public void putAll(final Map<? extends V8Value, ? extends V> m) {
         for (java.util.Map.Entry<? extends V8Value, ? extends V> entry : m.entrySet()) {
             this.put(entry.getKey(), entry.getValue());
@@ -136,7 +136,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#clear()
      */
-    @Override
+    //@Override
     public void clear() {
         map.clear();
         for (V8Value V8Value : twinMap.keySet()) {
@@ -149,7 +149,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#keySet()
      */
-    @Override
+    //@Override
     public Set<V8Value> keySet() {
         return map.keySet();
     }
@@ -158,7 +158,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#values()
      */
-    @Override
+   // @Override
     public Collection<V> values() {
         return map.values();
     }
@@ -167,7 +167,7 @@ public class V8Map<V> implements Map<V8Value, V>, Releasable {
      * (non-Javadoc)
      * @see java.util.Map#entrySet()
      */
-    @Override
+    //@Override
     public Set<java.util.Map.Entry<V8Value, V>> entrySet() {
         return map.entrySet();
     }

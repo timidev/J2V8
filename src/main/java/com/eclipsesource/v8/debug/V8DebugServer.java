@@ -447,7 +447,7 @@ public class V8DebugServer {
 
     private class EventHandler implements JavaVoidCallback {
 
-        @Override
+        //@Override
         public void invoke(final V8Object receiver, final V8Array parameters) {
             if ((parameters == null) || parameters.isUndefined()) {
                 return;
@@ -525,7 +525,7 @@ public class V8DebugServer {
 
         private int from;
 
-        @Override
+       // @Override
         public void run() {
             while (true) {
                 try {
